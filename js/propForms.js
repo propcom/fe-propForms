@@ -135,7 +135,7 @@
                         },
 
                         success: function(data) {
-                            
+                            console.log(data);
                             try {
 
                                 var form = $(data).find('#'+self.attr('id')),
@@ -152,7 +152,7 @@
                                     self.parent().find('.errorText').remove();
 
                                     var required = form.find('.error'),
-                                        requiredField = required.children('input, select, textarea');
+                                        requiredField = required.find('input, select, textarea');
 
                                     for(var i = 0; i < required.length; i++) {
 
