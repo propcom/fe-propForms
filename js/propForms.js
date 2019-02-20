@@ -66,6 +66,7 @@
             ajax : true,
             pending : null,
             success : null,
+            error: null,
             trackers: null
 
         };
@@ -95,6 +96,13 @@
                     if(instance.public_methods.validate() == false) {
 
                         self.addClass('error-form');
+                        
+                        // Form is invalid, run error function if it exists within options
+                        if (typeof settings.error == 'function') {
+
+                            settings.error.call(self[0]);
+
+                        }
 
                         return false;
 
